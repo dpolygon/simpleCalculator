@@ -14,6 +14,7 @@
 		4D1D4727268445D9008A42E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1D4726268445D9008A42E5 /* Assets.xcassets */; };
 		4D1D472A268445D9008A42E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1D4728268445D9008A42E5 /* LaunchScreen.storyboard */; };
 		4DC82A072686A4D600CEC2A3 /* calcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC82A062686A4D600CEC2A3 /* calcViewController.swift */; };
+		4DC9CCD926870A75007D032A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC9CCD826870A75007D032A /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4D1D4729268445D9008A42E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1D472B268445D9008A42E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DC82A062686A4D600CEC2A3 /* calcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calcViewController.swift; sourceTree = "<group>"; };
+		4DC9CCD826870A75007D032A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4D1D4723268445D8008A42E5 /* Main.storyboard */,
 				4D1D4721268445D8008A42E5 /* ViewController.swift */,
 				4DC82A062686A4D600CEC2A3 /* calcViewController.swift */,
+				4DC9CCD826870A75007D032A /* Data.swift */,
 				4D1D4726268445D9008A42E5 /* Assets.xcassets */,
 				4D1D4728268445D9008A42E5 /* LaunchScreen.storyboard */,
 				4D1D472B268445D9008A42E5 /* Info.plist */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1D4722268445D8008A42E5 /* ViewController.swift in Sources */,
+				4DC9CCD926870A75007D032A /* Data.swift in Sources */,
 				4DC82A072686A4D600CEC2A3 /* calcViewController.swift in Sources */,
 				4D1D471E268445D8008A42E5 /* AppDelegate.swift in Sources */,
 				4D1D4720268445D8008A42E5 /* SceneDelegate.swift in Sources */,

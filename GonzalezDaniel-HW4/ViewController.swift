@@ -9,13 +9,10 @@
 
 import UIKit
 
-var supportedOperations = ["Add", "Subtract", "Multiply", "Divide"]
-var supportedOperatorSymbols = ["+", "-", "*", "/"]
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -28,8 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath as IndexPath)
-        let row = indexPath.row
-        cell.textLabel?.text = supportedOperations[row]
+        let row = supportedOperations[indexPath.row]
+        cell.textLabel?.text = row["operation"]
         return cell
     }
     
@@ -38,9 +35,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "calculatorSegue", let destination = segue.destination as? calcViewController,
-           let selectedRowIndex = tableView.indexPathForSelectedRow?.row {
-            destination.operatorSymbol = supportedOperatorSymbols[selectedRowIndex]
+        if segue.identifier == "calculatorSegue", let destination = segue.destination as? calcViewController {
+            let selectedRow = supportedOperations[tableView.indexPathForSelectedRow!.row]
+            destination.operatorSymbol = selectedRow["symbol"]!
         }
     }
 }
