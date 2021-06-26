@@ -1,6 +1,8 @@
 //
 //  AppDelegate.swift
-//  GonzalezDaniel-HW4
+//  Project: GonzalezDaniel-HW4
+//  EID: Dg37584
+//  Course: CS371L
 //
 //  Created by Daniel Gonzalez on 6/23/21.
 //
