@@ -19,22 +19,21 @@ class calcViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        operandFieldOne.delegate = self
-        operandFieldTwo.delegate = self
-        operandFieldOne.text = String()
-        operandFieldTwo.text = String()
     }
     
+    // loads correct operator before user can see the VC
     override func viewWillAppear(_ animated: Bool) {
         operatorLabel.text = operatorSymbol
     }
     
+    // method to validate text as it is typed by the user. main function is to prevents user from typing extra decimals
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch string {
         case ".":
-            if textField.text?.contains(".") == true {
+            if textField.text!.contains(".") {
                 return false
             } else {
+                textField.text = textField.text!.isEmpty ? "0" : textField.text // place leading zero if no number has been entered
                 return true
             }
         default:
@@ -42,12 +41,12 @@ class calcViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // calculator logic, converts strings in operandFields into doubles to perform operations
     @IBAction func pressedCalcButton(_ sender: Any) {
-        var resultFloat: Double?
-        
-        if operandFieldOne.text == "" || operandFieldTwo.text == "" || operandFieldOne.text == "." || operandFieldTwo.text == "." {
+        if operandFieldOne.text == "" || operandFieldTwo.text == "" { // reminder to user to not leave any operand field empty
             resultLabel.text = "please enter two valid operands"
         } else {
+            var resultFloat: Double?
             switch operatorSymbol {
             case "+":
                 resultFloat = Double(operandFieldOne.text!)! + Double(operandFieldTwo.text!)!
@@ -60,10 +59,11 @@ class calcViewController: UIViewController, UITextFieldDelegate {
             default:
                 print("error")
             }
-            resultLabel.text = String(format: "%g", resultFloat!)
+            resultLabel.text = String(format: "%g", resultFloat!) // general format, shortest precise representation
         }
     }
     
+    // code to enable tapping on the background to remove software keyboard
     func textFieldShouldReturn(_ textField:UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -20,9 +20,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return supportedOperations.count
+        return supportedOperations.count // number of rows in table view
     }
     
+    // return a dequeue reusable cell that will be displayed in the table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath as IndexPath)
         let row = supportedOperations[indexPath.row]
@@ -30,10 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // deselect row after being selected to remove highlight effect
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // during segue pass the operator symbol into destination
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calculatorSegue", let destination = segue.destination as? calcViewController {
             let selectedRow = supportedOperations[tableView.indexPathForSelectedRow!.row]

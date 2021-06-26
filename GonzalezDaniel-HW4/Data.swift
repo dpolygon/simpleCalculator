@@ -9,18 +9,18 @@
 
 let supportedOperations = [
     ["operation": "Add",
-     "symbol": "+"
+     "symbol": "+",
     ],
     
     ["operation": "Subtract",
-     "symbol": "-"
+     "symbol": "-",
     ],
     
     ["operation": "Multiply",
-     "symbol": "*"
+     "symbol": "*",
     ],
     
     ["operation": "Divide",
-     "symbol": "/"
+     "symbol": "/",
     ]
 ]
