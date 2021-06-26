@@ -8,6 +8,7 @@
 import UIKit
 
 var supportedOperations = ["Add", "Subtract", "Multiply", "Divide"]
+var supportedOperatorSymbols = ["+", "-", "*", "/"]
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -30,9 +31,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "calculatorSegue", let destination = segue.destination as? calcViewController,
+           let selectedRowIndex = tableView.indexPathForSelectedRow?.row {
+            destination.operatorSymbol = supportedOperatorSymbols[selectedRowIndex]
+        }
     }
 }
 

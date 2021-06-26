@@ -37,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="gmw-XV-Fnu" kind="show" identifier="selectedOperator" id="vOB-lb-6uJ"/>
+                                            <segue destination="gmw-XV-Fnu" kind="show" identifier="calculatorSegue" id="OfA-Di-Grw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,32 +61,44 @@
             </objects>
             <point key="canvasLocation" x="1389" y="14"/>
         </scene>
-        <!--View Controller-->
+        <!--Calc View Controller-->
         <scene sceneID="660-Qb-rtS">
             <objects>
-                <viewController id="gmw-XV-Fnu" sceneMemberID="viewController">
+                <viewController id="gmw-XV-Fnu" customClass="calcViewController" customModule="GonzalezDaniel_HW4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MEB-bM-rkz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="imh-tM-0vr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="imh-tM-0vr">
                                 <rect key="frame" x="54.666666666666657" y="172" width="100" height="34"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Cno-Uk-yBi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePf-mC-URh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePf-mC-URh">
                                 <rect key="frame" x="239" y="172" width="100" height="34"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UOc-cV-hvl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operand 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NLS-s1-oJz">
                                 <rect key="frame" x="65.333333333333343" y="143" width="78.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operand 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-AV-OOj">
+                                <rect key="frame" x="248.66666666666666" y="143" width="80.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -99,28 +111,28 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh7-rv-ekD">
                                 <rect key="frame" x="171" y="336" width="48" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" allowsDirectInteraction="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlq-HK-vAd">
-                                <rect key="frame" x="163" y="276" width="64" height="30"/>
+                                <rect key="frame" x="163" y="288" width="64" height="30"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="pressedCalcButton:" destination="gmw-XV-Fnu" eventType="touchUpInside" id="DMd-0k-udZ"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operand 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-AV-OOj">
-                                <rect key="frame" x="248.66666666666666" y="143" width="80.666666666666657" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tKT-hJ-vVp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jLd-AV-OOj" firstAttribute="centerX" secondItem="ePf-mC-URh" secondAttribute="centerX" id="9hj-JK-g6U"/>
                             <constraint firstItem="Mh7-rv-ekD" firstAttribute="centerX" secondItem="qlq-HK-vAd" secondAttribute="centerX" id="BGh-bR-Q22"/>
-                            <constraint firstItem="Mh7-rv-ekD" firstAttribute="top" secondItem="qlq-HK-vAd" secondAttribute="bottom" constant="30" id="CzY-KW-3ld"/>
-                            <constraint firstItem="qlq-HK-vAd" firstAttribute="top" secondItem="uVc-bz-Wne" secondAttribute="bottom" constant="77" id="ENB-B0-nz0"/>
+                            <constraint firstItem="Mh7-rv-ekD" firstAttribute="top" secondItem="qlq-HK-vAd" secondAttribute="bottom" constant="18" id="CzY-KW-3ld"/>
+                            <constraint firstItem="qlq-HK-vAd" firstAttribute="top" secondItem="uVc-bz-Wne" secondAttribute="bottom" constant="89" id="ENB-B0-nz0"/>
                             <constraint firstItem="uVc-bz-Wne" firstAttribute="centerX" secondItem="tKT-hJ-vVp" secondAttribute="centerX" id="FwU-2G-xJo"/>
                             <constraint firstItem="uVc-bz-Wne" firstAttribute="top" secondItem="tKT-hJ-vVp" secondAttribute="top" constant="91" id="I9u-Vg-TSv"/>
                             <constraint firstItem="ePf-mC-URh" firstAttribute="leading" secondItem="uVc-bz-Wne" secondAttribute="trailing" constant="9.6666666666666856" id="MlD-gx-5db"/>
@@ -134,6 +146,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VdS-YZ-yek"/>
+                    <connections>
+                        <outlet property="operandFieldOne" destination="imh-tM-0vr" id="ZHN-1X-Uzs"/>
+                        <outlet property="operandFieldTwo" destination="ePf-mC-URh" id="6jK-BF-coO"/>
+                        <outlet property="operatorLabel" destination="uVc-bz-Wne" id="qEV-GX-OAY"/>
+                        <outlet property="resultLabel" destination="Mh7-rv-ekD" id="sqG-S3-Fn1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAr-Ya-mBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
