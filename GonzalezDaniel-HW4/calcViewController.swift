@@ -19,6 +19,8 @@ class calcViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        operandFieldOne.delegate = self
+        operandFieldTwo.delegate = self
     }
     
     // loads correct operator before user can see the VC
